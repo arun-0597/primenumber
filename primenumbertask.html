@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" />
+    <button type="button" >Submit</button>
+    <div class="printdiv">
+
+    </div>
+    <script>
+        document.querySelector("button").addEventListener("click", function() {
+            var pn = document.querySelector("input").value;
+            var primearray = [];
+            for(var i = 0; i <= pn; i++) {
+                var conditioncount = 0;
+                for(var v = 0; v <= i; v++) {
+                    if(i % v == 0) {
+                        conditioncount++;
+                    }
+                }
+                if(conditioncount == 2) {
+                    primearray.push(i);
+                }
+            }
+            var content = "";
+            primearray.forEach(function(item, key) {
+                content += item + "<br>";
+                document.querySelector(".printdiv").innerHTML = content;
+            });
+        });
+    </script>
+</body>
+</html>
